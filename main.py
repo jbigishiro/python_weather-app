@@ -1,5 +1,8 @@
 import streamlit as st
+import pandas as pd
 import plotly.express as px
+from backend import foo
+
 
 st.title("Weather Forecast for the Next Days")
 place = st.text_input("Place")
@@ -17,7 +20,7 @@ def get_data(days):
     return dates, temperatures
 
 
-d, t = get_data(days)
+y_data = foo(place, days, option)
 
 figure = px.line(x=d, y=t, labels={"x": "Date", "y": "Temperature (C)"})
 
