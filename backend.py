@@ -15,4 +15,8 @@ def get_data(place, forecasted_days):
 
 
 if __name__ == "__main__":
-    print(get_data(place="Dallas", forecasted_days=3))
+    data = get_data(place="Goma", forecasted_days=1)
+    rain = [dt["weather"][0]["main"] for dt in data]
+    print(rain)
+    temp = [dt["dt_txt"] for dt in data]
+    print(temp)
